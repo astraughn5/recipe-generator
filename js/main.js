@@ -1,8 +1,13 @@
 document.querySelector('#submit').addEventListener('click',getRecipe);
+// document.querySelector('#nextRecipe').addEventListener('click',nextRecipe);
+
 
 // Get API key and hosted data
 const key = config.MY_API_TOKEN;
 const id = config.MY_API_ID;
+
+//define i as global variable
+let i = 0
 
 // function to get recipe
 // 1. starts by checking if an ingredient has been entered in the input, if yes the function will continue running, if no the function returns please add an ingredient.
@@ -42,14 +47,39 @@ function getRecipe(){
 	fetch(url)
 	.then(res => res.json()) // parse response as JSON
 	.then(data => {
-	  console.log(data)
-
-	//  document.querySelector('h2').innerText = localStorage.getItem('books')
-
-	})
+		console.log(data)
+		recipeDataGrabber(data)
+	}
+	)
 	.catch(err => {
 		console.log(`error ${err}`)
 	});
 }
 
+function recipeDataGrabber(data){
+	document.querySelector('h2').innerText = data.hits[i].recipe.label
+	document.querySelector('a').setAttribute('href',data.hits[i].recipe.url)
+	document.querySelector('img').src = data.hits[i].recipe.image
 
+	document.querySelector('#source').innerText = data.hits[i].recipe.source
+	document.querySelector('#cuisine').innerText = data.hits[i].recipe.cuisineType
+	document.querySelector('#mealType').innerText = data.hits[i].recipe.mealType[0]
+};
+
+
+function nextRecipe(){
+	if (i < array.length){
+		i += 1
+		console.log(i)
+	}
+	// document.querySelector('h2').innerText = data.hits[i].recipe.label
+	// document.querySelector('a').setAttribute('href',data.hits[i].recipe.url)
+	// document.querySelector('img').src = data.hits[i].recipe.image
+
+	// document.querySelector('#source').innerText = data.hits[i].recipe.source
+	// document.querySelector('#cuisine').innerText = data.hits[i].recipe.cuisineType
+	// document.querySelector('#mealType').innerText = data.hits[i].recipe.mealType[0]
+	
+	// if (i = i % data.length){
+	// 	return i = 0
+	}
