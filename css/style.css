@@ -1,0 +1,13 @@
+body{
+	display: flex;
+	flex-direction: column;
+}
+#ingredientError{
+	display: none;
+}
+main, section {
+	margin: 0 auto;
+}
+img {
+	border-radius: 10px;
+}

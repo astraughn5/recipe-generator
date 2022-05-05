@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Find a Meal!</title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main>
+	<h1> Find your recipe! </h1>
+</main>	
+<section>
+		<label for="ingredient"> Ingredient: </label>
+		<input type="text" id="ingredient" name="ingredient" placeholder="Enter 1 Ingredient">
+		<br>
+		<label for="tag"> Optional: </label>
+		<input type="checkbox" id="vegetarian" name="vegetarian" value="vegetarian"> 
+		<label for="vegetarian"> Vegetarian </label>
+		<br>	
+		<button id="submit"> Submit</button>
+		<p id ='ingredientError' display = none> Please enter an ingredient. </p>
+</section>
+
+<section>
+	<h2> Meal </h2>
+	<h3 id ='cuisine'> Cuisine Type </h3>
+	<h3 id='mealType'> Meal Type </h3>
+	<a href="#"> <img alt="Photo of Meal" src="images/foodPlaceholder.jpg"> </a>
+	<br><p> Source:<span id='source'>Source </span></p>
+</section>
+<section>
+	<button id ='prevRecipe'> Back </button>
+	<button id='nextRecipe'> Next </button>
+</section>
+
+	<script type="text/javascript" src="js/config.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
