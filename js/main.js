@@ -1,13 +1,36 @@
 document.querySelector('#submit').addEventListener('click',getRecipe);
-// document.querySelector('#nextRecipe').addEventListener('click',nextRecipe);
-
+document.querySelector('#nextRecipe').addEventListener('click',nextRecipe);
+document.querySelector('#prevRecipe').addEventListener('click',previousRecipe);
 
 // Get API key and hosted data
 const key = config.MY_API_TOKEN;
 const id = config.MY_API_ID;
 
-//define i as global variable
-let i = 0
+//define global variables
+let recipes
+let currentRecipe = 0 
+
+//add recipe count when Next is clicked
+function nextRecipe(){
+	if (currentRecipe < recipes.length - 1){
+		currentRecipe++;
+		recipeDataGrabber(recipes[currentRecipe])
+	}
+	else{
+		alert('Search a new ingredient for more recipes.')
+	}
+};
+
+//subtract recipe count when Previous is clicked
+function previousRecipe(){
+	if (currentRecipe > 0){
+		currentRecipe--;
+		recipeDataGrabber(recipes[currentRecipe])
+	}
+	else{
+		alert('You are at the beginning of the recipe list.')
+	}	
+}
 
 // function to get recipe
 // 1. starts by checking if an ingredient has been entered in the input, if yes the function will continue running, if no the function returns please add an ingredient.
@@ -46,9 +69,9 @@ function getRecipe(){
 	// 4.
 	fetch(url)
 	.then(res => res.json()) // parse response as JSON
-	.then(data => {
-		console.log(data)
-		recipeDataGrabber(data)
+	.then(data => recipes = data.hits)
+	.then(() => {
+		recipeDataGrabber(recipes[currentRecipe])
 	}
 	)
 	.catch(err => {
@@ -56,30 +79,39 @@ function getRecipe(){
 	});
 }
 
-function recipeDataGrabber(data){
-	document.querySelector('h2').innerText = data.hits[i].recipe.label
-	document.querySelector('a').setAttribute('href',data.hits[i].recipe.url)
-	document.querySelector('img').src = data.hits[i].recipe.image
+function recipeDataGrabber(recipes){
+	document.querySelector('h2').innerText = recipes.recipe.label
+	document.querySelector('a').setAttribute('href',recipes.recipe.url)
+	document.querySelector('img').src = recipes.recipe.image
 
-	document.querySelector('#source').innerText = data.hits[i].recipe.source
-	document.querySelector('#cuisine').innerText = data.hits[i].recipe.cuisineType
-	document.querySelector('#mealType').innerText = data.hits[i].recipe.mealType[0]
+	document.querySelector('#source').innerText = recipes.recipe.source
+	document.querySelector('#cuisine').innerText = recipes.recipe.cuisineType
+	document.querySelector('#mealType').innerText = recipes.recipe.mealType[0]
+	console.log(currentRecipe)
 };
 
 
-function nextRecipe(){
-	if (i < array.length){
-		i += 1
-		console.log(i)
-	}
-	// document.querySelector('h2').innerText = data.hits[i].recipe.label
-	// document.querySelector('a').setAttribute('href',data.hits[i].recipe.url)
-	// document.querySelector('img').src = data.hits[i].recipe.image
 
-	// document.querySelector('#source').innerText = data.hits[i].recipe.source
-	// document.querySelector('#cuisine').innerText = data.hits[i].recipe.cuisineType
-	// document.querySelector('#mealType').innerText = data.hits[i].recipe.mealType[0]
+
+
+
+
+
+
+
+// function nextRecipe(){
+// 	if (i < array.length){
+// 		i += 1
+// 		console.log(i)
+// 	}
+// 	// document.querySelector('h2').innerText = data.hits[i].recipe.label
+// 	// document.querySelector('a').setAttribute('href',data.hits[i].recipe.url)
+// 	// document.querySelector('img').src = data.hits[i].recipe.image
+
+// 	// document.querySelector('#source').innerText = data.hits[i].recipe.source
+// 	// document.querySelector('#cuisine').innerText = data.hits[i].recipe.cuisineType
+// 	// document.querySelector('#mealType').innerText = data.hits[i].recipe.mealType[0]
 	
-	// if (i = i % data.length){
-	// 	return i = 0
-	}
+// 	// if (i = i % data.length){
+// 	// 	return i = 0
+// 	}
