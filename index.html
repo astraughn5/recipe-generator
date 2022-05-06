@@ -5,35 +5,46 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Find a Meal!</title>
+	<link rel="icon" href="https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/Travel-pict-dinner.png">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&family=Luxurious+Roman&family=Pangolin&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/style.css">
+	
 </head>
 <body>
 <main>
 	<h1> Find your recipe! </h1>
 </main>	
 <section>
+		<div class="space">
 		<label for="ingredient"> Ingredient: </label>
 		<input type="text" id="ingredient" name="ingredient" placeholder="Enter 1 Ingredient">
-		<br>
+		</div>
+		<div class="space">
 		<label for="tag"> Optional: </label>
 		<input type="checkbox" id="vegetarian" name="vegetarian" value="vegetarian"> 
 		<label for="vegetarian"> Vegetarian </label>
-		<br>	
+		</div>	
+		<div class="space">
 		<button id="submit"> Submit</button>
 		<p id ='ingredientError' display = none> Please enter an ingredient. </p>
+		</div>
 </section>
 
 <section>
 	<h2> Meal </h2>
-	<h3 id ='cuisine'> Cuisine Type </h3>
-	<h3 id='mealType'> Meal Type </h3>
+	<h3 id ='cuisine'> Cuisine </h3>
+	<h3 id='mealType'> When to have it </h3>
 	<a href="#"> <img alt="Photo of Meal" src="images/foodPlaceholder.jpg"> </a>
-	<br><p> Source:<span id='source'>Source </span></p>
+	<p> Source:<span id='source'>Source </span></p>
 </section>
 <section>
-	<button id ='prevRecipe'> Back </button>
-	<button id='nextRecipe'> Next </button>
+	<div class="bottomButtons">
+		<button id ='prevRecipe'> Back </button>
+		<button id='nextRecipe'> Next </button>
+	</div>
 </section>
 
 	<script type="text/javascript" src="js/config.js"></script>

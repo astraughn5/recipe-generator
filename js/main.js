@@ -62,9 +62,7 @@ function getRecipe(){
 
 	// 3.
 	const url = `https://api.edamam.com/api/recipes/v2?type=public&q=${foodOrIngredient}&app_id=${id}&app_key=${key}${health}`
-	// console.log(foodOrIngredient)
-	// console.log(health)
-	// console.log(url)
+	
 
 	// 4.
 	fetch(url)
@@ -78,16 +76,22 @@ function getRecipe(){
 		console.log(`error ${err}`)
 	});
 }
+//
+let toFirstLetterUpperCase = function () { 
+	return split(" ").map(function(word){
+	  return word.charAt(0).toUpperCase() + word.slice(1);
+	}).join(" ");
+  }
 
+//function to take the current Recipe and place it in the DOM
 function recipeDataGrabber(recipes){
-	document.querySelector('h2').innerText = recipes.recipe.label
+	document.querySelector('h2').innerText = recipes.recipe.label.toUpperCase()
 	document.querySelector('a').setAttribute('href',recipes.recipe.url)
 	document.querySelector('img').src = recipes.recipe.image
 
 	document.querySelector('#source').innerText = recipes.recipe.source
 	document.querySelector('#cuisine').innerText = recipes.recipe.cuisineType
 	document.querySelector('#mealType').innerText = recipes.recipe.mealType[0]
-	console.log(currentRecipe)
 };
 
 

@@ -1,13 +1,42 @@
 body{
 	display: flex;
 	flex-direction: column;
+	font-family: 'Hind Siliguri', sans-serif;
+	font-family: 'Luxurious Roman', cursive;
+	font-family: 'Pangolin', cursive;
+	background-color: #FEE1D2;
+}
+.space {
+	margin: 2% 0;
+	text-align: center;
+}
+.space button {
+	text-align: center;
 }
 #ingredientError{
 	display: none;
+	color: red;
 }
 main, section {
-	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	margin: 1% auto;
+}
+h2, h3, a, p{
+	text-align: center;
+	margin: 1% auto;
 }
 img {
 	border-radius: 10px;
+	max-width: 75%;
+}
+
+
+/* <--------- Next/Back Stlyes ---------> */ 
+.bottomButtons{
+	margin: 0;
+	width: 110%;
+}
+#nextRecipe{
+	margin-left: 3%;
 }
