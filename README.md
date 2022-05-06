@@ -1,6 +1,6 @@
 # Your Recipe Generator to find a meal.
 <p align = 'left'>
-Welcome to your recipe generator. This small application was built using the Edamam API, JavaScript, HTML, and CSS. The idea came from my roommates when they mentioned being able to search an ingredient and recieve a list of recipes to go through. 
+Welcome to your recipe generator. This web application was built using the Edamam API, JavaScript, HTML, and CSS. The idea came from my roommates when they mentioned being able to search an ingredient and recieve a list of recipes to go through. 
 </p>
 
 ## Functionality
