@@ -1,3 +1,4 @@
+//adding three event listeners for when the 3 buttons are clicked
 document.querySelector('#submit').addEventListener('click',getRecipe);
 document.querySelector('#nextRecipe').addEventListener('click',nextRecipe);
 document.querySelector('#prevRecipe').addEventListener('click',previousRecipe);
@@ -10,7 +11,7 @@ const id = config.MY_API_ID;
 let recipes
 let currentRecipe = 0 
 
-//add recipe count when Next is clicked
+//add recipe count when Next is clicked and passes the recipe count to the recipe data grabber
 function nextRecipe(){
 	if (currentRecipe < recipes.length - 1){
 		currentRecipe++;
@@ -21,7 +22,7 @@ function nextRecipe(){
 	}
 };
 
-//subtract recipe count when Previous is clicked
+//subtract recipe count when Previous is clicked and passes the recipe count to the recipe data grabber
 function previousRecipe(){
 	if (currentRecipe > 0){
 		currentRecipe--;
@@ -76,12 +77,6 @@ function getRecipe(){
 		console.log(`error ${err}`)
 	});
 }
-//
-let toFirstLetterUpperCase = function () { 
-	return split(" ").map(function(word){
-	  return word.charAt(0).toUpperCase() + word.slice(1);
-	}).join(" ");
-  }
 
 //function to take the current Recipe and place it in the DOM
 function recipeDataGrabber(recipes){
