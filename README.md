@@ -8,4 +8,10 @@ Search for one ingredient to get a list of 20 recipes. Click next to view the ne
 
 ![alt text](https://github.com/astraughn5/recipe-generator/blob/main/images/recipe_generator_thumbnail.png)
 
+## Optimizations
+
+### Other Project Examples
+1. [Photo Generator](https://github.com/astraughn5/Photo-Generator/blob/main/README.md)
+2. [Drawing Project](https://github.com/astraughn5/drawing_project)
+3. [Hank Co](https://github.com/astraughn5/hankco)
 
